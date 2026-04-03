@@ -1,12 +1,5 @@
-def find_max_subsequence(val, A, B):
-
+def find_max_value(val, A, B):
     M = [[0] * (len(B) + 1) for _ in range(len(A) + 1)]
-
-    '''for i in range(len(A)+1):
-        M[i][0] = 0
-    
-    for j in range(len(B)+1):
-        M[0][j] = 0'''
 
     for i in range(1, len(A)+1):
         for j in range(1, len(B)+1):
@@ -16,7 +9,29 @@ def find_max_subsequence(val, A, B):
                 M[i][j] = max(M[i][j-1], M[i-1][j])
 
     print(M[len(A)][len(B)])
-    return M[len(A)][len(B)]
+    return M[len(A)][len(B)], M
+
+def find_subsequence(M, val, A, B):
+    i = len(A)
+    j = len(B)
+    result = []
+
+    while (i>0 and j>0): #remember that A,B are 0-indexed, M is 1-indexed!!
+        if (A[i-1] == B[j-1] and M[i][j] == M[i-1][j-1]+val[A[i-1]]):
+            result.append(A[i-1])
+            i -= 1
+            j -= 1
+        elif (A[i-1] == B[j-1] and M[i][j] == M[i-1][j]):
+            i -= 1
+        elif (A[i-1] == B[j-1] and M[i][j] == M[i][j-1]):
+            j -= 1
+        elif (A[i-1] != B[j-1] and M[i][j] == M[i-1][j]):
+            i -= 1
+        elif (A[i-1] != B[j-1] and M[i][j] == M[i][j-1]):
+            j -= 1
+    print(result)
+    return result
+    
 
 def main():
     val = {}
@@ -27,7 +42,8 @@ def main():
     A = ['a', 'a', 'c', 'b']
     B = ['c', 'a', 'a', 'b']
 
-    find_max_subsequence(val, A, B)
+    total, M = find_max_value(val, A, B)
+    find_subsequence(M, val, A, B)
 
 
 if __name__ == "__main__":
