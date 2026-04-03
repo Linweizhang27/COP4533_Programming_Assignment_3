@@ -18,7 +18,7 @@ def find_subsequence(M, val, A, B):
 
     while (i>0 and j>0): #remember that A,B are 0-indexed, M is 1-indexed!!
         if (A[i-1] == B[j-1] and M[i][j] == M[i-1][j-1]+val[A[i-1]]):
-            result.append(A[i-1])
+            result.append(A[i-1]) #result is backwards
             i -= 1
             j -= 1
         elif (A[i-1] == B[j-1] and M[i][j] == M[i-1][j]):
@@ -29,6 +29,7 @@ def find_subsequence(M, val, A, B):
             i -= 1
         elif (A[i-1] != B[j-1] and M[i][j] == M[i][j-1]):
             j -= 1
+    result.reverse()
     print(result)
     return result
     
