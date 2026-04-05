@@ -1,0 +1,26 @@
+import random
+import os
+
+alphabets = ['a', 'b', 'c', 'd', 'e']
+
+def create_string(length):
+    string = ""
+    for _ in range(length):
+        string += random.choice(alphabets)
+    return string
+
+for i in range(1, 11):
+    filename = f"data/input{i}.in"
+    with open(filename, "w") as f:
+        K = len(alphabets)
+        f.write(str(K) + '\n')
+
+        for char in alphabets:
+            value = random.randint(1, 10)
+            f.write(f"{char}: {value}\n")
+
+        lenA = random.randint(25, 40)
+        lenB = random.randint(25, 40)
+
+        A = 
+
