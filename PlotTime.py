@@ -13,10 +13,10 @@ def measure_time(filename):
 
     end = time.perf_counter()
 
-    time = end - start
+    t = end - start
     size = len(A) * len(B) #the 2d table
 
-    return time, size
+    return t, size
 
 
 def main():
@@ -35,6 +35,8 @@ def main():
     sizes, times = zip(*paired)
 
     plt.plot(sizes, times, marker="o") #plotting it against len(A) * len(B) should give me a straight line
+    plt.xlabel("len(A) * len(B)")
+    plt.ylabel("time")
     plt.show()
 
 
