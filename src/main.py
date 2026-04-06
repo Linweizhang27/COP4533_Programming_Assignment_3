@@ -25,11 +25,16 @@ def main():
     path = find_subsequence(M, val, A, B) #path is a list, not yet a string here
     print(max_val)
     
-    subsequnece = ""
+    subsequence = ""
     for i in range(len(path)):
-        subsequnece += path[i]
+        subsequence += path[i]
 
-    print(subsequnece)
+    print(subsequence)
+
+    out_filename = filename.replace("input", "output").replace(".in", ".out")
+    with open(out_filename, "w") as f:
+        f.write(f"{max_val}\n")
+        f.write(f"{subsequence}\n")
 
 
 if __name__ == "__main__":
