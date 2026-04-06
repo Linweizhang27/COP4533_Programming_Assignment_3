@@ -1,3 +1,7 @@
+## Name and ID
+**Name:** Linwei Zhang
+**UFID:** 55022278
+
 ## Instruction to Run
 **How to Run:**                                                                                                                                                                                                                                                                      
 python3 src/main.py \<input\_file\>                                                                           
