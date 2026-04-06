@@ -21,9 +21,9 @@ def main():
     filename = sys.argv[1]
     val, A, B = parse_file(filename)
 
-    max, M = find_max_value(val, A, B)
+    max_val, M = find_max_value(val, A, B)
     path = find_subsequence(M, val, A, B) #path is a list, not yet a string here
-    print(max)
+    print(max_val)
     
     subsequnece = ""
     for i in range(len(path)):
@@ -32,3 +32,5 @@ def main():
     print(subsequnece)
 
 
+if __name__ == "__main__":
+    main()

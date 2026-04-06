@@ -8,7 +8,7 @@ def find_max_value(val, A, B):
             else:
                 M[i][j] = max(M[i][j-1], M[i-1][j])
 
-    print(M[len(A)][len(B)])
+    #print(M[len(A)][len(B)])
     return M[len(A)][len(B)], M
 
 def find_subsequence(M, val, A, B):
@@ -30,10 +30,11 @@ def find_subsequence(M, val, A, B):
         elif (A[i-1] != B[j-1] and M[i][j] == M[i][j-1]):
             j -= 1
     result.reverse()
-    print(result)
+    #print(result)
     return result
     
 
+'''
 def main():
     val = {}
     val['a'] = 2
@@ -49,3 +50,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    '''
